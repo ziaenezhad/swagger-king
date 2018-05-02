@@ -1,0 +1,9 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "no-console": "off",
+    "no-param-reassign": ["error", { "props": false }],
+    "consistent-return": "off",
+    "no-unused-vars": "off"
+  }
+}

@@ -1,0 +1,8 @@
+/dist/*
+/tests/.mongodb/*
+!/tests/.mongodb/.gitkeep
+/logs
+/npm-debug.log
+/node_modules
+.DS_Store
+.env

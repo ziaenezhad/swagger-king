@@ -1,0 +1,25 @@
+type: object
+required: 
+  - _id
+  - name
+properties: 
+  _id: 
+    type: string   
+  createdAt:
+    type: string
+    format: datetime
+  updatedAt:
+    type: string
+    format: datetime
+  deletedAt:
+    type: string
+    format: datetime
+  deleted:
+    type: boolean
+  deletedBy:
+    type: string
+    description: id of the user who deleted the record
+  name: 
+    type: string
+  tag: 
+    type: string

@@ -1,0 +1,5 @@
+name: id
+in: path
+required: true
+type: string
+x-example: '5ae9a74d85f4302268dd529e'

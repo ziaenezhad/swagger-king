@@ -1,0 +1,42 @@
+{
+  "name": "swagger-igniter",
+  "version": "0.1.0",
+  "description": "Swagger based RESTful Express+Mongoose API",
+  "main": "src/server.js",
+  "repository": "sajjad-shirazy/swagger-igniter",
+  "author": "Sajjad Shirazy <shirazy.sajjad@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=9.11.1"
+  },
+  "scripts": {
+    "build:swagger": "node build/swagger.js",
+    "start": "npm run build:swagger && node src/server.js",
+    "start:mongodb": "mongod --dbpath tests/.mongodb --logpath tests/.mongodb/logs --port 18013",
+    "start:dredd":
+      "npm run build:swagger && cross-env MONGO_URL=mongodb://localhost:18013/dredd-examples dredd --config=./tests/dredd.yml",
+    "start:test": "npm run start:dredd && npm run stop:mongodb",
+    "stop:mongodb": "mongo admin --eval \"db.getSiblingDB('admin').shutdownServer()\" --port 18013",
+    "test": "run-p start:mongodb start:test"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.4",
+    "dredd": "^5.1.6",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "json-refs": ">=3.0.2",
+    "npm-run-all": "^4.1.2"
+  },
+  "dependencies": {
+    "async-file": "^2.0.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "js-yaml": ">=3.10.0",
+    "lodash": "^4.17.10",
+    "mongoose": "^5.0.16",
+    "require-dir": "^1.0.0",
+    "swagger-mongoose": "^1.1.2",
+    "swagger-tools": "^0.10.3"
+  }
+}
